@@ -16,16 +16,10 @@ tweets = DB[:tweets]
 # HAML config
 set :haml, {:format => :html5, :attr_wrapper => '"' }
 
-# reset stylesheet
-get '/stylesheets/reset.css' do
-  header 'Content-Type' => 'text/css; charset=utf-8'
-  css :reset
-end
-
 # main stylesheet
-get '/stylesheets/main.css' do
+get '/css/screen.css' do
   header 'Content-Type' => 'text/css; charset=utf-8'
-  css :main
+  css :screen
 end
 
 # homepage
