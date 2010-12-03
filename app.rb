@@ -30,7 +30,7 @@ get '/' do
 
   # load all the new tweets into the DB
   while true do
-    @search = Twitter::Search.new.q('"internet explorer" OR ie6 OR ie7 OR ie8 shit OR piss OR fuck OR cunt OR arse OR arsehole OR ass OR asshole OR prick OR bastard')
+    @search = Twitter::Search.new('"internet explorer" OR ie6 OR ie7 OR ie8 shit OR piss OR fuck OR cunt OR arse OR arsehole OR ass OR asshole OR prick OR bastard')
     # 20 per page - twitter docs say 100, but seems to be less, so we
     # cover our bases for pagination. this pagination method also leaves
     # a small possibility of duplicates, but it's not a big deal.
