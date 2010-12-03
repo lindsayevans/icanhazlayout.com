@@ -5,7 +5,7 @@ require 'haml'
 require 'sequel'
 
 # Database setup
-DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://tfa.db')
+DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://ichl.db')
 DB.create_table? :tweets do
   primary_key :id
   String :content
@@ -33,7 +33,7 @@ get '/' do
 
   # load all the new tweets into the DB
   while true do
-    @search = Twitter::Search.new('"tony abbott" shit OR fuck OR cunt OR arse OR arsehole OR prick OR bastard')
+    @search = Twitter::Search.new('"internet explorer" OR ie6 OR ie7 OR ie8 shit OR piss OR fuck OR cunt OR arse OR arsehole OR ass OR asshole OR prick OR bastard')
     # 20 per page - twitter docs say 100, but seems to be less, so we
     # cover our bases for pagination. this pagination method also leaves
     # a small possibility of duplicates, but it's not a big deal.
@@ -59,8 +59,8 @@ get '/' do
       @results << item[:content].gsub(/^@\w[a-z]+\s/, '').
                                 gsub(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/i, '<a href="\1">\1</a>').
                                 gsub(/(@\w[a-z]+)(\s|\S)/i, '<a href="http://twitter.com/\1">\1</a>').
-                                gsub(/(Tony Abbott\W?)/i, '<strong>\1</strong>').
-                                gsub(/(fuck\W|fucking\W|fucked\W|shit\W|arse\W|arsehole\W|prick\W|bastard\W|cunt\W)/i, '<em>\1</em>')
+                                gsub(/(Internet Explorer\W|ie[0-9]*\W?)/i, '<strong>\1</strong>').
+                                gsub(/(shit\W|piss\W|fuck\W|cunt\W|arse\W|arsehole\W|ass\W|asshole\W|prick\W|bastard\W)/i, '<em>\1</em>')
     else
       puts "This was blacklisted: #{item[:content]}"
     end
