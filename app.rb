@@ -13,6 +13,9 @@ DB.create_table? :tweets do
 end
 tweets = DB[:tweets]
 
+# HAML config
+set :haml, {:format => :html5, :attr_wrapper => '"' }
+
 # reset stylesheet
 get '/stylesheets/reset.css' do
   header 'Content-Type' => 'text/css; charset=utf-8'
@@ -57,7 +60,7 @@ get '/' do
     # ignore items in the blacklist file or that start with rt/RT (retweets)
     unless BLACKLISTED_STRINGS.any? {|i| item[:content].downcase.match(i.downcase)} || item[:content].downcase.match(/^rt/)
       @results << item[:content].gsub(/^@\w[a-z]+\s/, '').
-                                gsub(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/i, '<a href="\1">\1</a>').
+                                gsub(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/i, '<a href="\1" rel="nofollow">\1</a>').
                                 gsub(/(@\w[a-z]+)(\s|\S)/i, '<a href="http://twitter.com/\1">\1</a>').
                                 gsub(/(Internet Explorer\W|ie[0-9]*\W?)/i, '<strong>\1</strong>').
                                 gsub(/(shit\W|piss\W|fuck\W|cunt\W|arse\W|arsehole\W|ass\W|asshole\W|prick\W|bastard\W)/i, '<em>\1</em>')
@@ -69,7 +72,8 @@ get '/' do
   # Make heroku cache this page
   response.headers['Cache-Control'] = 'public, max-age=300'
     
-  haml :index, :options => {:format => :html4, :attr_wrapper => '"'}
+  haml :index
+
 end
 
 
