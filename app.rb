@@ -62,7 +62,7 @@ get '/' do
                                 gsub(/(Internet Explorer\W|ie[0-9]*\W?)/i, '<strong>\1</strong>').
                                 gsub(/(shit\W|piss\W|fuck\W|cunt\W|arse\W|arsehole\W|ass\W|asshole\W|prick\W|bastard\W)/i, '<em>\1</em>')
     else
-      puts "This was blacklisted: #{item[:content]}"
+      #puts "This was blacklisted: #{item[:content]}"
     end
   end
 
