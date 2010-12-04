@@ -30,11 +30,11 @@ header, article, footer {
 header {
 	padding-top: 1.3em;
 	height: 4em;
-	font-family: monospace;
 	text-shadow: 0 0 0.5em #333;
 }
 
 header h1 a {
+	font-family: monospace;
 	font-weight: normal;
 	text-decoration: none;
 }
