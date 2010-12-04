@@ -40,6 +40,7 @@ header h1 a {
 article {
 	padding: 1.5em;
 	border: thin solid #99c;
+	-moz-border-radius: 1.5em;
 	border-radius: 1.5em;
 	background: rgba(153, 153, 204, 0.15);
 	-webkit-box-shadow: inset 0 0 1.75em rgba(153, 153, 204, 0.5);
