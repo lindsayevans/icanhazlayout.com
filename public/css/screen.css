@@ -78,16 +78,20 @@ ul li em {
 	font-style: normal;
 	font-weight: bold;
 	color: #fff;
+	-webkit-transition: color 1s linear;
 }
 
 ul li strong {
 	color: #fff;
+	-webkit-transition: color 1s linear;
 }
 
 ul li:hover em {
-	-webkit-transition: text-shadow 0.25s linear;
+	color: #c99;
+	-webkit-transition: color 0.25s linear;
 }
 
 ul li:hover strong {
+	color: #99c;
 	-webkit-transition: color 0.25s linear;
 }
