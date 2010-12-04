@@ -59,6 +59,7 @@ ul {
 	list-style: none;
 	padding: 0;
 	color: #aaa;
+	-webkit-transition: none;
 }
 
 ul li {
@@ -66,7 +67,6 @@ ul li {
 	color: #eee;
 	opacity: 0.5;
 	text-shadow: 0.1em 0.1em 0.05em #333;
-	-webkit-transition: opacity 1s linear;
 }
 
 ul li:hover {
@@ -78,12 +78,10 @@ ul li em {
 	font-style: normal;
 	font-weight: bold;
 	color: #fff;
-	-webkit-transition: color 1s linear;
 }
 
 ul li strong {
 	color: #fff;
-	-webkit-transition: color 1s linear;
 }
 
 ul li:hover em {
