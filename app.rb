@@ -56,7 +56,7 @@ get '/' do
       @results << item[:content].gsub(/^@\w[a-z]+\s/, '').
                                 gsub(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/i, '<a href="\1" rel="nofollow">\1</a>').
                                 gsub(/(@\w[a-z]+)(\s|\S)/i, '<a href="http://twitter.com/\1">\1</a>').
-                                gsub(/(Internet Explorer\W|ie[0-9]*\W?)/i, '<strong>\1</strong>').
+                                gsub(/(Internet Explorer\W|ie[0-9]+\W?)/i, '<strong>\1</strong>').
                                 gsub(/(shit\W|piss\W|fuck\W|cunt\W|arse\W|arsehole\W|ass\W|asshole\W|prick\W|bastard\W)/i, '<em>\1</em>')
     else
       #puts "This was blacklisted: #{item[:content]}"
