@@ -10,6 +10,7 @@ DB.create_table? :tweets do
   primary_key :id
   String :content
   BigNum :twitter_id, :type => :bigint
+	DateTime :created_at
 end
 tweets = DB[:tweets]
 
@@ -25,8 +26,11 @@ end
 # homepage
 get '/' do
   # get the max id from the database to pass to our search query
-  since_id = tweets.max(:twitter_id) 
+  since_id = tweets.max(:twitter_id)
   page = 1
+
+	# Get the datetime of the earliest tweet
+	#@since_date = ago_in_words(Date.strptime(tweets.max(:created_at), "%a, %d %b %Y %H:%M:%S +0000"))
 
   # load all the new tweets into the DB
   while true do
@@ -40,7 +44,7 @@ get '/' do
     item_count = 0
 
     @search.each do |item|
-      tweets.insert(:twitter_id => item["id"].to_i, :content => item["text"])
+      tweets.insert(:twitter_id => item["id"].to_i, :content => item["text"], :created_at => item["created_at"])
       item_count = item_count + 1
     end
     # if we don't have more than 20 items, we can exit
@@ -81,3 +85,6 @@ configure do
     end  
   end
 end
+
+
+
