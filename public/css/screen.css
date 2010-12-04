@@ -30,6 +30,7 @@ header, article, footer {
 header {
 	padding-top: 1.3em;
 	height: 4em;
+	text-shadow: 0 0 0.5em #333;
 }
 
 header h1 a {
@@ -51,6 +52,7 @@ article {
 article h2 {
 	margin: 0 0 1.5em;
 	font-weight: normal;
+	text-shadow: 0 0 0.5em #333;
 }
 
 ul {
@@ -63,10 +65,29 @@ ul li {
 	margin: 0 0 1em;
 	color: #eee;
 	opacity: 0.5;
+	text-shadow: 0.1em 0.1em 0.05em #333;
 	-webkit-transition: opacity 1s linear;
 }
 
 ul li:hover {
 	opacity: 1;
 	-webkit-transition: opacity 0.25s linear;
+}
+
+ul li em {
+	font-style: normal;
+	font-weight: bold;
+	color: #fff;
+}
+
+ul li strong {
+	color: #fff;
+}
+
+ul li:hover em {
+	-webkit-transition: text-shadow 0.25s linear;
+}
+
+ul li:hover strong {
+	-webkit-transition: color 0.25s linear;
 }
