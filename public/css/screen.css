@@ -55,13 +55,17 @@ article h2 {
 ul {
 	list-style: none;
 	padding: 0;
+	color: #aaa;
 }
 
 ul li {
 	margin: 0 0 1em;
-	color: #aaa;
+	color: #eee;
+	opacity: 0.5;
+	-webkit-transition: opacity 1s linear;
 }
 
 ul li:hover {
-	color: #eee;
+	opacity: 1;
+	-webkit-transition: opacity 0.25s linear;
 }
