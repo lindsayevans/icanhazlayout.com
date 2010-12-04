@@ -1,6 +1,6 @@
 body {
 	margin: 2em;
-	background: #123;
+	background: #123 url(../images/bg_page.png) no-repeat 50% 0;
 	color: #e3e3e3;
 	font: 62.5% sans-serif;
 }
@@ -27,7 +27,13 @@ header, article, footer {
 	line-height: 130%;
 }
 
+header {
+	padding-top: 1.3em;
+	height: 4em;
+}
+
 header h1 a {
+	font-weight: normal;
 	text-decoration: none;
 }
 
