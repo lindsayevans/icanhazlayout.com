@@ -11,14 +11,11 @@ a:link {
 
 a:visited {
 	color: #99c;
+	opacity: 0.5;
 }
 
-a:hover {
-	color: #99c;
-}
-
-a:active {
-	color: #99c;
+a:hover, a:active {
+	color: #99e;
 }
 
 header, article, footer {
