@@ -19,6 +19,7 @@ a:hover, a:active {
 }
 
 header, article, footer {
+	display: block;
 	min-width: 17em;
 	max-width: 25em;
 	margin: 0 auto;
