@@ -10,7 +10,6 @@ DB.create_table? :tweets do
   primary_key :id
   String :content
   BigNum :twitter_id, :type => :bigint
-	DateTime :created_at
 end
 tweets = DB[:tweets]
 
@@ -44,7 +43,7 @@ get '/' do
     item_count = 0
 
     @search.each do |item|
-      tweets.insert(:twitter_id => item["id"].to_i, :content => item["text"], :created_at => item["created_at"])
+      tweets.insert(:twitter_id => item["id"].to_i, :content => item["text"])
       item_count = item_count + 1
     end
     # if we don't have more than 20 items, we can exit
